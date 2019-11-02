@@ -9,6 +9,7 @@
 package com.richard.app.ws.ui.controllers;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,11 @@ public class UserController {
 	@RequestMapping
 	public String getAllUsers() {
 		return "Get user was called!";
+	}
+	
+	@RequestMapping(path="/{userId}")
+	public String getUserById(@PathVariable int userId) {
+		return "Get user was called with ID: " +userId;
 	}
 	
 	@PostMapping
