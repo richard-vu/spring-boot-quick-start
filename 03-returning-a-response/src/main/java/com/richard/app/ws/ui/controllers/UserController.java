@@ -8,6 +8,7 @@
  */
 package com.richard.app.ws.ui.controllers;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,7 @@ public class UserController {
 		return "Get user was called with page: " +page +" - limit: " +limit +" - sort: " +sort;
 	}
 	
-	@RequestMapping(path="/{userId}")
+	@RequestMapping(path="/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 	public UserRest getUserById(@PathVariable int userId) {
 		UserRest returnUser = new UserRest();
 		
