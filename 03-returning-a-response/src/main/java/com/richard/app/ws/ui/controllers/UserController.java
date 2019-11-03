@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,14 +32,14 @@ import com.richard.app.ws.ui.model.response.UserRest;
 @RequestMapping("/users") // http://localhost:8080/richard-vu-spring-boot-quick-start-app-ws
 public class UserController {
 	
-	@RequestMapping
+	@GetMapping
 	public String getAllUsers(@RequestParam(value="page", defaultValue = "1") int page,
 			@RequestParam(value="limit", required = true) int limit,
 			@RequestParam(value="sort", defaultValue = "desc") String sort) {
 		return "Get user was called with page: " +page +" - limit: " +limit +" - sort: " +sort;
 	}
 	
-	@RequestMapping(path="/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(path="/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<UserRest> getUserById(@PathVariable int userId) {
 		UserRest returnUser = new UserRest();
 		
