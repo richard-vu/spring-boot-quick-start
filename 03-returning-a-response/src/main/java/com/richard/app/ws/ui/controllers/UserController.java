@@ -3,7 +3,7 @@
  * Skype: luongvu.work@gmail.com
  * Mail: codershouseteams@gmail.com
  * Phone Number: (+84) 0935710974 - (+84) 0935810974
- * Project Name: 02-spring-boot-quick-start-handle-http-get-request
+ * Project Name: 03-returning-a-response
  * Create Date: Nov 2, 2019
  */
 package com.richard.app.ws.ui.controllers;
