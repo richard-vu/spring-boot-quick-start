@@ -8,7 +8,9 @@
  */
 package com.richard.app.ws.ui.controllers;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,7 +39,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-	public UserRest getUserById(@PathVariable int userId) {
+	public ResponseEntity<UserRest> getUserById(@PathVariable int userId) {
 		UserRest returnUser = new UserRest();
 		
 		returnUser.setUserId(userId);
@@ -45,7 +47,7 @@ public class UserController {
 		returnUser.setLastName("Vu");
 		returnUser.setEmail("richardvu.work@gmail.com");
 		
-		return returnUser;
+		return new ResponseEntity<UserRest>(returnUser, HttpStatus.OK);
 	}
 	
 	@PostMapping
